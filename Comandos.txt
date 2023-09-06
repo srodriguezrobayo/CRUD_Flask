@@ -1,0 +1,332 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Prueba la nueva tecnología PowerShell multiplataforma https://aka.ms/pscore6
+
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install -r requiremnts.txt
+Collecting click==8.0.1 (from -r requiremnts.txt (line 1))
+  Using cached click-8.0.1-py3-none-any.whl (97 kB)
+Collecting Flask==1.1.2 (from -r requiremnts.txt (line 2))
+  Using cached Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+Collecting Flask-SQLAlchemy==2.5.1 (from -r requiremnts.txt (line 3))
+  Using cached Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl (17 kB)
+Collecting greenlet==1.1.0 (from -r requiremnts.txt (line 4))
+  Using cached greenlet-1.1.0.tar.gz (85 kB)
+  Preparing metadata (setup.py) ... done
+Collecting itsdangerous==2.0.1 (from -r requiremnts.txt (line 5))
+  Using cached itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+Collecting Jinja2==3.0.1 (from -r requiremnts.txt (line 6))
+  Using cached Jinja2-3.0.1-py3-none-any.whl (133 kB)
+Collecting MarkupSafe==2.0.1 (from -r requiremnts.txt (line 7))
+  Using cached MarkupSafe-2.0.1-cp310-cp310-win_amd64.whl (15 kB)
+Collecting SQLAlchemy==1.4.15 (from -r requiremnts.txt (line 8))
+  Using cached SQLAlchemy-1.4.15-cp310-cp310-win_amd64.whl
+Collecting Werkzeug==2.0.1 (from -r requiremnts.txt (line 9))
+  Using cached Werkzeug-2.0.1-py3-none-any.whl (288 kB)
+Collecting colorama (from click==8.0.1->-r requiremnts.txt (line 1))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Building wheels for collected packages: greenlet
+  Building wheel for greenlet (setup.py) ... error
+  error: subprocess-exited-with-error
+
+  × python setup.py bdist_wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [113 lines of output]
+      running bdist_wheel
+      running build
+      running build_py
+      creating build
+      creating build\lib.win-amd64-cpython-310
+      creating build\lib.win-amd64-cpython-310\greenlet
+      copying src\greenlet\__init__.py -> build\lib.win-amd64-cpython-310\greenlet
+      creating build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_contextvars.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_cpp.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_extension_interface.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_gc.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_generator.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_generator_nested.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_greenlet.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_leaks.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_stack_saved.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_throw.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_tracing.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_version.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\test_weakref.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\__init__.py -> build\lib.win-amd64-cpython-310\greenlet\tests
+      running egg_info
+      writing src\greenlet.egg-info\PKG-INFO
+      writing dependency_links to src\greenlet.egg-info\dependency_links.txt
+      writing requirements to src\greenlet.egg-info\requires.txt
+      writing top-level names to src\greenlet.egg-info\top_level.txt
+      reading manifest file 'src\greenlet.egg-info\SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      no previously-included directories found matching 'docs\_build'
+      warning: no files found matching '*.py' under directory 'appveyor'
+      warning: no previously-included files matching '*.pyc' found anywhere in distribution
+      warning: no previously-included files matching '*.pyd' found anywhere in distribution
+      warning: no previously-included files matching '*.so' found anywhere in distribution
+      warning: no previously-included files matching '.coverage' found anywhere in distribution
+      adding license file 'LICENSE'
+      adding license file 'LICENSE.PSF'
+      adding license file 'AUTHORS'
+      writing manifest file 'src\greenlet.egg-info\SOURCES.txt'
+      C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\setuptools\command\build_py.py:201: _Warning: Package 'greenlet.platfor
+m' is absent from the `packages` configuration.
+      !!
+     
+              ********************************************************************************
+              ############################
+              # Package would be ignored #
+              ############################
+              Python recognizes 'greenlet.platform' as an importable package[^1],
+              but it is absent from setuptools' `packages` configuration.
+     
+              This leads to an ambiguous overall configuration. If you want to distribute this
+              package, please make sure that 'greenlet.platform' is explicitly added
+              to the `packages` configuration field.
+     
+              Alternatively, you can also rely on setuptools' discovery methods
+              (for example by using `find_namespace_packages(...)`/`find_namespace:`
+              instead of `find_packages(...)`/`find:`).
+     
+              You can read more about "package discovery" on setuptools documentation page:
+     
+              - https://setuptools.pypa.io/en/latest/userguide/package_discovery.html
+     
+              If you don't want 'greenlet.platform' to be distributed and are
+              already explicitly excluding 'greenlet.platform' via
+              `find_namespace_packages(...)/find_namespace` or `find_packages(...)/find`,
+              you can try to use `exclude_package_data`, or `include-package-data=False` in
+              combination with a more fine grained `package-data` configuration.
+     
+              You can read more about "package data files" on setuptools documentation page:
+     
+              - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+     
+     
+              [^1]: For Python, any directory (with suitable naming) can be imported,
+                    even if it does not contain any `.py` files.
+                    On the other hand, currently there is no concept of package data
+                    directory, all directories are treated like packages.
+              ********************************************************************************
+     
+      !!
+        check.warn(importable)
+      copying src\greenlet\greenlet.c -> build\lib.win-amd64-cpython-310\greenlet
+      copying src\greenlet\greenlet.h -> build\lib.win-amd64-cpython-310\greenlet
+      copying src\greenlet\slp_platformselect.h -> build\lib.win-amd64-cpython-310\greenlet
+      creating build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\setup_switch_x64_masm.cmd -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_aarch64_gcc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_alpha_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_amd64_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_arm32_gcc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_arm32_ios.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_csky_gcc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_m68k_gcc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_mips_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc64_aix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc64_linux.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc_aix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc_linux.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc_macosx.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_ppc_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_riscv_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_s390_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_sparc_sun_gcc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x32_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x64_masm.asm -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x64_masm.obj -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x64_msvc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x86_msvc.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\platform\switch_x86_unix.h -> build\lib.win-amd64-cpython-310\greenlet\platform
+      copying src\greenlet\tests\_test_extension.c -> build\lib.win-amd64-cpython-310\greenlet\tests
+      copying src\greenlet\tests\_test_extension_cpp.cpp -> build\lib.win-amd64-cpython-310\greenlet\tests
+      running build_ext
+      building 'greenlet._greenlet' extension
+      error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-to
+      [end of output]
+
+  ERROR: Failed building wheel for greenlet
+  Running setup.py clean for greenlet
+Failed to build greenlet
+ERROR: Could not build wheels for greenlet, which is required to install pyproject.toml-based projects
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install flask_restfull
+ERROR: Could not find a version that satisfies the requirement flask_restfull (from versions: none)
+ERROR: No matching distribution found for flask_restfull
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install flask_restful 
+Collecting flask_restful
+  Obtaining dependency information for flask_restful from https://files.pythonhosted.org/packages/d7/7b/f0b45f0df7d2978e5ae51804bb5939b7897b2ace24306009da0cc3
+4d8d1f/Flask_RESTful-0.3.10-py2.py3-none-any.whl.metadata
+  Using cached Flask_RESTful-0.3.10-py2.py3-none-any.whl.metadata (1.0 kB)
+Collecting aniso8601>=0.82 (from flask_restful)
+  Using cached aniso8601-9.0.1-py2.py3-none-any.whl (52 kB)
+Collecting Flask>=0.8 (from flask_restful)
+  Obtaining dependency information for Flask>=0.8 from https://files.pythonhosted.org/packages/fd/56/26f0be8adc2b4257df20c1c4260ddd0aa396cf8e75d90ab2f7ff99bc3
+4f9/flask-2.3.3-py3-none-any.whl.metadata
+  Using cached flask-2.3.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting six>=1.3.0 (from flask_restful)
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting pytz (from flask_restful)
+  Obtaining dependency information for pytz from https://files.pythonhosted.org/packages/32/4d/aaf7eff5deb402fd9a24a1449a8119f00d74ae9c2efa79f8ef9994261fc2/py
+tz-2023.3.post1-py2.py3-none-any.whl.metadata
+  Downloading pytz-2023.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting Werkzeug>=2.3.7 (from Flask>=0.8->flask_restful)
+  Obtaining dependency information for Werkzeug>=2.3.7 from https://files.pythonhosted.org/packages/9b/59/a7c32e3d8d0e546a206e0552a2c04444544f15c1da4a01df8938
+d20c6ffc/werkzeug-2.3.7-py3-none-any.whl.metadata
+  Using cached werkzeug-2.3.7-py3-none-any.whl.metadata (4.1 kB)
+Collecting Jinja2>=3.1.2 (from Flask>=0.8->flask_restful)
+  Using cached Jinja2-3.1.2-py3-none-any.whl (133 kB)
+Collecting itsdangerous>=2.1.2 (from Flask>=0.8->flask_restful)
+  Using cached itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+Collecting click>=8.1.3 (from Flask>=0.8->flask_restful)
+  Obtaining dependency information for click>=8.1.3 from https://files.pythonhosted.org/packages/00/2e/d53fa4befbf2cfa713304affc7ca780ce4fc1fd8710527771b58311
+a3229/click-8.1.7-py3-none-any.whl.metadata
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting blinker>=1.6.2 (from Flask>=0.8->flask_restful)
+  Using cached blinker-1.6.2-py3-none-any.whl (13 kB)
+Collecting colorama (from click>=8.1.3->Flask>=0.8->flask_restful)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->Flask>=0.8->flask_restful)
+  Obtaining dependency information for MarkupSafe>=2.0 from https://files.pythonhosted.org/packages/84/a8/c4aebb8a14a1d39d5135eb8233a0b95831cdc42c4088358449c3
+ed657044/MarkupSafe-2.1.3-cp310-cp310-win_amd64.whl.metadata
+  Using cached MarkupSafe-2.1.3-cp310-cp310-win_amd64.whl.metadata (3.1 kB)
+Using cached Flask_RESTful-0.3.10-py2.py3-none-any.whl (26 kB)
+Using cached flask-2.3.3-py3-none-any.whl (96 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 502.5/502.5 kB 2.1 MB/s eta 0:00:00
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Using cached werkzeug-2.3.7-py3-none-any.whl (242 kB)
+Using cached MarkupSafe-2.1.3-cp310-cp310-win_amd64.whl (17 kB)
+Installing collected packages: pytz, aniso8601, six, MarkupSafe, itsdangerous, colorama, blinker, Werkzeug, Jinja2, click, Flask, flask_restful
+Successfully installed Flask-2.3.3 Jinja2-3.1.2 MarkupSafe-2.1.3 Werkzeug-2.3.7 aniso8601-9.0.1 blinker-1.6.2 click-8.1.7 colorama-0.4.6 flask_restful-0.3.10 
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install flask-sqlalchemy marshmellow_sqlalchemy
+Collecting flask-sqlalchemy
+  Obtaining dependency information for flask-sqlalchemy from https://files.pythonhosted.org/packages/d8/1d/c3c5afdaebd5d5f82d2c25762f5356416bd7bc109a550c79247
+134e48ca3/flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata
+  Using cached flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata (3.3 kB)
+ERROR: Could not find a version that satisfies the requirement marshmellow_sqlalchemy (from versions: none)
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install flask-sqlalchemy marshmellow_sqlalchemy flask-migrate flask-mysqldb
+Collecting flask-sqlalchemy
+  Obtaining dependency information for flask-sqlalchemy from https://files.pythonhosted.org/packages/d8/1d/c3c5afdaebd5d5f82d2c25762f5356416bd7bc109a550c79247
+134e48ca3/flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata
+  Using cached flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata (3.3 kB)
+ERROR: Could not find a version that satisfies the requirement marshmellow_sqlalchemy (from versions: none)
+ERROR: No matching distribution found for marshmellow_sqlalchemy
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install flask-sqlalchemy                                                   
+Collecting flask-sqlalchemy
+  Obtaining dependency information for flask-sqlalchemy from https://files.pythonhosted.org/packages/d8/1d/c3c5afdaebd5d5f82d2c25762f5356416bd7bc109a550c79247
+134e48ca3/flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata
+  Using cached flask_sqlalchemy-3.0.5-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: flask>=2.2.5 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask-sqlalchemy) (2.3.3
+)
+Collecting sqlalchemy>=1.4.18 (from flask-sqlalchemy)
+  Obtaining dependency information for sqlalchemy>=1.4.18 from https://files.pythonhosted.org/packages/e9/01/e251a1e721d93c584471d56f7f6d1ae310831522b04d74306
+a0f522e7c1a/SQLAlchemy-2.0.20-cp310-cp310-win_amd64.whl.metadata
+  Using cached SQLAlchemy-2.0.20-cp310-cp310-win_amd64.whl.metadata (9.7 kB)
+Requirement already satisfied: Werkzeug>=2.3.7 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask>=2.2.5->flask-s
+qlalchemy) (2.3.7)
+Requirement already satisfied: Jinja2>=3.1.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask>=2.2.5->flask-sql
+alchemy) (3.1.2)
+Requirement already satisfied: itsdangerous>=2.1.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask>=2.2.5->fla
+sk-sqlalchemy) (2.1.2)
+Requirement already satisfied: click>=8.1.3 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask>=2.2.5->flask-sqla
+lchemy) (8.1.7)
+Requirement already satisfied: blinker>=1.6.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask>=2.2.5->flask-sq
+lalchemy) (1.6.2)
+Collecting typing-extensions>=4.2.0 (from sqlalchemy>=1.4.18->flask-sqlalchemy)
+  Obtaining dependency information for typing-extensions>=4.2.0 from https://files.pythonhosted.org/packages/ec/6b/63cc3df74987c36fe26157ee12e09e8f9db4de771e0
+f3404263117e75b95/typing_extensions-4.7.1-py3-none-any.whl.metadata
+  Using cached typing_extensions-4.7.1-py3-none-any.whl.metadata (3.1 kB)
+Collecting greenlet!=0.4.17 (from sqlalchemy>=1.4.18->flask-sqlalchemy)
+  Using cached greenlet-2.0.2-cp310-cp310-win_amd64.whl (192 kB)
+Requirement already satisfied: colorama in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from click>=8.1.3->flask>=2.2.5->
+Requirement already satisfied: MarkupSafe>=2.0 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Jinja2>=3.1.2->flask>
+=2.2.5->flask-sqlalchemy) (2.1.3)
+Using cached flask_sqlalchemy-3.0.5-py3-none-any.whl (24 kB)
+Using cached SQLAlchemy-2.0.20-cp310-cp310-win_amd64.whl (2.0 MB)
+Using cached typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Installing collected packages: typing-extensions, greenlet, sqlalchemy, flask-sqlalchemy
+Successfully installed flask-sqlalchemy-3.0.5 greenlet-2.0.2 sqlalchemy-2.0.20 typing-extensions-4.7.1
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> pip install marshmallow_sqlalchemy flask-migrate flask-mysqldb                 
+Collecting marshmallow_sqlalchemy
+  Using cached marshmallow_sqlalchemy-0.29.0-py2.py3-none-any.whl (16 kB)
+Collecting flask-migrate
+  Using cached Flask_Migrate-4.0.4-py3-none-any.whl (20 kB)
+Collecting flask-mysqldb
+  Using cached Flask-MySQLdb-1.0.1.tar.gz (4.3 kB)
+  Preparing metadata (setup.py) ... done
+Collecting marshmallow>=3.0.0 (from marshmallow_sqlalchemy)
+  Obtaining dependency information for marshmallow>=3.0.0 from https://files.pythonhosted.org/packages/ed/3c/cebfdcad015240014ff08b883d1c0c427f2ba45ae8c657285
+1b6ef136cad/marshmallow-3.20.1-py3-none-any.whl.metadata
+  Using cached marshmallow-3.20.1-py3-none-any.whl.metadata (7.8 kB)
+Requirement already satisfied: SQLAlchemy<3.0,>=1.4.40 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from marshmallow_s
+qlalchemy) (2.0.20)
+Collecting packaging>=21.3 (from marshmallow_sqlalchemy)
+  Using cached packaging-23.1-py3-none-any.whl (48 kB)
+Requirement already satisfied: Flask>=0.9 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask-migrate) (2.3.3)
+Requirement already satisfied: Flask-SQLAlchemy>=1.0 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from flask-migrate) 
+(3.0.5)
+Collecting alembic>=1.9.0 (from flask-migrate)
+  Obtaining dependency information for alembic>=1.9.0 from https://files.pythonhosted.org/packages/a2/8b/46919127496036c8e990b2b236454a0d8655fd46e1df2fd35610a
+9cbc842/alembic-1.12.0-py3-none-any.whl.metadata
+  Downloading alembic-1.12.0-py3-none-any.whl.metadata (7.2 kB)
+Collecting mysqlclient>=1.3.7 (from flask-mysqldb)
+  Obtaining dependency information for mysqlclient>=1.3.7 from https://files.pythonhosted.org/packages/20/f1/af81742264efd8e37c609a30f8aa72629bf039dd286e2b7f6
+5ece68a96bf/mysqlclient-2.2.0-cp310-cp310-win_amd64.whl.metadata
+  Downloading mysqlclient-2.2.0-cp310-cp310-win_amd64.whl.metadata (4.5 kB)
+Collecting Mako (from alembic>=1.9.0->flask-migrate)
+  Using cached Mako-1.2.4-py3-none-any.whl (78 kB)
+Requirement already satisfied: typing-extensions>=4 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from alembic>=1.9.0->
+flask-migrate) (4.7.1)
+Requirement already satisfied: Werkzeug>=2.3.7 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Flask>=0.9->flask-mig
+rate) (2.3.7)
+Requirement already satisfied: Jinja2>=3.1.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Flask>=0.9->flask-migra
+te) (3.1.2)
+Requirement already satisfied: itsdangerous>=2.1.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Flask>=0.9->flask
+-migrate) (2.1.2)
+Requirement already satisfied: click>=8.1.3 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Flask>=0.9->flask-migrat
+e) (8.1.7)
+Requirement already satisfied: blinker>=1.6.2 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Flask>=0.9->flask-migr
+ate) (1.6.2)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from SQLAlchemy<3.0,>=1.4
+.40->marshmallow_sqlalchemy) (2.0.2)
+Requirement already satisfied: colorama in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from click>=8.1.3->Flask>=0.9->fl
+ask-migrate) (0.4.6)
+Requirement already satisfied: MarkupSafe>=2.0 in c:\users\nibot\downloads\trimestre 5\isaura\crud-proyecto\venv\lib\site-packages (from Jinja2>=3.1.2->Flask>
+=0.9->flask-migrate) (2.1.3)
+Downloading alembic-1.12.0-py3-none-any.whl (226 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.0/226.0 kB 2.0 MB/s eta 0:00:00
+Using cached marshmallow-3.20.1-py3-none-any.whl (49 kB)
+Using cached mysqlclient-2.2.0-cp310-cp310-win_amd64.whl (199 kB)
+Building wheels for collected packages: flask-mysqldb
+6c0a
+  Stored in directory: c:\users\nibot\appdata\local\pip\cache\wheels\3f\7f\62\bb7b4e2a4a6324b42bc6cf1f7dc7946781dbe81f2ce1e59bee
+Successfully built flask-mysqldb
+Installing collected packages: packaging, mysqlclient, Mako, marshmallow, alembic, marshmallow_sqlalchemy, flask-mysqldb, flask-migrate
+Successfully installed Mako-1.2.4 alembic-1.12.0 flask-migrate-4.0.4 flask-mysqldb-1.0.1 marshmallow-3.20.1 marshmallow_sqlalchemy-0.29.0 mysqlclient-2.2.0 pa
+ckaging-23.1
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto> cd flaskr
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\flaskr> flask db init
+Traceback (most recent call last):
+  File "C:\Users\nibot\OneDrive\Documentos\ok\python3.10\lib\runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Users\nibot\OneDrive\Documentos\ok\python3.10\lib\runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\Scripts\flask.exe\__main__.py", line 7, in <module>
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\flask\cli.py", line 1064, in main
+    cli.main()
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\click\core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\click\core.py", line 1682, in invoke
+    cmd_name, cmd, args = self.resolve_command(ctx, args)
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\click\core.py", line 1729, in resolve_command
+    cmd = self.get_command(ctx, cmd_name)
+  File "C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\venv\lib\site-packages\flask\cli.py", line 579, in get_command
+fore proceeding.
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\flaskr> flask db migrate
+INFO  [alembic.env] No changes in schema detected.
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\flaskr> flask db upgrade
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+(venv) PS C:\Users\nibot\Downloads\trimestre 5\Isaura\Crud-proyecto\flaskr>
