@@ -1,23 +1,48 @@
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields
-import enum
 
 db = SQLAlchemy()
 
-class Servicio(db.Model):
-    id_servicio = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nombre_servicio = db.Column(db.String(128), nullable=False)
-    def __init__(self, nombre_servicio):
-        self.nombre_servicio=nombre_servicio
+class TipoUsuario(db.Model):
+    __tablename__ = 'tipo_usuario'
+    idTipo_usuario = db.Column(db.Integer, primary_key=True)
+    Nombre_t_usuario = db.Column(db.String(20), nullable=False)
+    estado = db.Column(db.Boolean, nullable=False)
+    empresas = db.relationship('Empresa', cascade='all, delete, delete-orphan')
+
+    def __init__(self, idTipo_usuario, Nombre_t_usuario, estado):
+        self.idTipo_usuario = idTipo_usuario
+        self.Nombre_t_usuario = Nombre_t_usuario
+        self.estado = estado
+
     def json(self):
-        return {'id_servicio':self.id_servicio, 'nombre_servicio':self.nombre_servicio}
+        return {'idTipo_usuario':self.idTipo_usuario, 'Nombre_t_usuario':self.Nombre_t_usuario, 'estado':self.estado, 'empresas':self.empresas}
+    
     def __str__(self):
-        return str(self.__class__)+':'+str(self.__dict__)
+        return str(self.__class__) + ':' + str(self.__dict__)
+    
 
-class ServicioSchema(SQLAlchemyAutoSchema):
 
+class Empresa(db.Model):
+    __tablename__ = 'empresa'
+    Nit_empresa = db.Column(db.Integer, primary_key=True)
+    Nombre_empresa = db.Column(db.String(20), nullable=False)
+    Correoelectronico_empresa = db.Column(db.String(20), nullable=False)
+    Password_empresa = db.Column(db.String(100), nullable=False)
+    Telefono_empresa = db.Column(db.Integer, nullable=True)
+    Ciudad_id_Ciudad = db.Column(db.Integer, db.ForeignKey('tipo_usuario.idTipo_usuario'))
+
+
+class TipoUsuarioSchema(SQLAlchemyAutoSchema):
     class Meta:
-        model = Servicio
+        model = TipoUsuario
+        include_relationships = True
+        load_instance = True
+
+
+class EmpresaSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = Empresa
         include_relationships = True
         load_instance = True
