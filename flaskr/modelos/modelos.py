@@ -33,6 +33,20 @@ class Empresa(db.Model):
     Telefono_empresa = db.Column(db.Integer, nullable=True)
     Ciudad_id_Ciudad = db.Column(db.Integer, db.ForeignKey('tipo_usuario.idTipo_usuario'))
 
+    def __init__(self, Nit_empresa, Nombre_empresa, Password_empresa, Telefono_empresa, Ciudad_id_Ciudad):
+        self.Nit_empresa = Nit_empresa
+        self.Nombre_empresa = Nombre_empresa
+        self.Correoelectronico_empresa = Correoelectronico_empresa
+        self.Password_empresa = Password_empresa
+        self.Telefono_empresa = Telefono_empresa
+        self.Ciudad_id_Ciudad = Ciudad_id_Ciudad
+
+    def json(self):
+        return {'Nit_empresa':self.Nit_empresa, 'Nombre_empresa':self.Nombre_empresa, 'Correoelectronico_empresa':self.Correoelectronico_empresa, 'Password_empresa':self.Password_empresa, 'Telefono_empresa':self.Telefono_empresa, 'Ciudad_id_Ciudad':self.Ciudad_id_Ciudad}
+    
+    def __str__(self):
+        return str(self.__class__) + ':' + str(self.__dict__)
+
 
 class TipoUsuarioSchema(SQLAlchemyAutoSchema):
     class Meta:
