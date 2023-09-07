@@ -1,8 +1,14 @@
 from flaskr import create_app
-from .modelos import db, Servicio, ServicioSchema
+from .modelos import db, Servicio, ServicioSchema, Reservacion, ReservacionSchema, TipoUsuario, TipoUsuarioSchema, Empresa, EmpresaSchema, Ciudad, CiudadSchema, Departamento, DepartamentoSchema, Genero, GeneroSchema, Cliente, ClienteSchema
 from flask_restful import Api
 from .vistas import VistaServicio, VistaServicios
-#from .vistas import VistaAlbumes, VistaAlbum
+from .vistas import VistaReservacion, VistaReservaciones
+from .vistas import VistaEmpresa, VistaEmpresas
+from .vistas import VistaTipoUsuario, VistaTiposUsuarios
+from .vistas import VistaCiudad, VistaCiudades
+from .vistas import VistaDepartamento, VistaDepartamentos
+from .vistas import VistaGenero, VistaGeneros
+from .vistas import VistaCliente, VistaClientes
 from flask_migrate import Migrate
 
 
@@ -18,40 +24,17 @@ migrate.init_app(app,db,compare_type=True)
 api = Api(app)
 api.add_resource(VistaServicios, '/servicios')
 api.add_resource(VistaServicio, '/servicio/<int:id_servicio>')
-
-
-#with app.app_context():
-    #Album_Schema = AlbumSchema()
-    #A = Album(titulo='Prueba', anio=1999, descripcion='texto', medio=Medio.CD)
-    #db.session.add(A)
-    #db.session.commit()
-    #print([Album_Schema.dumps(album) for album in Album.query.all()])
-
-#with app.app_context():
-    #u = Usuario(nombre='Juan', contrasenia='12345')
-    #c = Cancion(titulo="prueba", minutos=2, segundos=25, interprete="Haaland")
-    #a = Album(titulo='XD', anio=1999, descripcion='POP', medio=Medio.CD)
-    #u.albumes.append(a)
-    #a.canciones.append(c)
-    #db.session.add(u)
-    #db.session.add(c)
-    #db.session.commit()
-    #print(Album.query.all())
-    #print(Album.query.all()[0].canciones)
-    #db.session.delete(a)
-    #print(Album.query.all())
-    #print(Cancion.query.all())
-
-#prueba
-
-#with app.app_context():
-    #u = Usuario(nombre='Juan', contrasena='12345')
-    #a = Album(tiulo='prueba', anio=1999, descripcion='texto', medio=Medio.CD)
-    #u.albumes.append(a)
-    #db.session.add(u)
-    #db.session.commit()
-    #print(Usuario.query.all())
-    #print(Usuario.query.all()[0].albumes)
-    #db.session.delete(u)
-    #print(Usuario.query.all())
-    #print(Album.query.all())
+api.add_resource(VistaReservaciones, '/reservaciones')
+api.add_resource(VistaReservacion, '/reservacion/<int:id_reservacion>')
+api.add_resource(VistaTipoUsuario, '/tipo_usuario/<int:idTipo_usuario>')
+api.add_resource(VistaTiposUsuarios, '/tipos_usuarios')
+api.add_resource(VistaEmpresa, '/empresa/<int:Nit_empresa>')
+api.add_resource(VistaEmpresas, '/empresas')
+api.add_resource(VistaCiudad, '/ciudad/<string:id_Ciudad>')
+api.add_resource(VistaCiudades, '/ciudades')
+api.add_resource(VistaDepartamento, '/departamento/<string:idDepartamento>')
+api.add_resource(VistaDepartamentos, '/departamentos')
+api.add_resource(VistaGenero, '/genero/<int:idGenero>')
+api.add_resource(VistaGeneros, '/generos')
+api.add_resource(VistaCliente, '/cliente/<int:id_Cliente>')
+api.add_resource(VistaClientes, '/clientes')
