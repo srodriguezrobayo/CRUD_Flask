@@ -4,6 +4,44 @@ from marshmallow import fields
 
 db = SQLAlchemy()
 
+class Empleados(db.Model):
+    id_empleado = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nom_empleado = db.Column(db.Integer, nullable=False)
+    correo_elec_admin = db.Column(db.Date, nullable=False)
+    password_empleado = db.Column(db.Time, nullable=False)
+    tipo_usuario_idtipo_usuario = db.Column(db.Integer, db.ForeignKey('tipo_usuario.idTipo_usuario'))
+    telefono_empleado = db.Column(db.Integer, nullable=False)
+    genero_idgenero = db.Column(db.Integer, db.ForeignKey('genero.idGenero'))
+    reservaciones = db.relationship('Reservacion', cascade='all, delete, delete-orphan')
+    def __init__(self, nom_empleado, correo_elec_admin, password_empleado, tipo_usuario_idtipo_usuario, telefono_empleado, genero_idgenero ):
+        self.nom_empleado = nom_empleado
+        self.correo_elec_admin = correo_elec_admin
+        self.password_empleado = password_empleado
+        self.tipo_usuario_idtipo_usuario = tipo_usuario_idtipo_usuario
+        self.telefono_empleado = telefono_empleado
+        self.genero_idgenero = genero_idgenero
+
+    def json(self):
+        return {'id_empleado': self.id_empleado, 'nom_empleado': self.nom_empleado, 'password_empleado': self.password_empleado, 'tipo_usuario_idtipo_usuario': self.tipo_usuario_idtipo_usuario, 'telefono_empleado': self.telefono_empleado, 'genero_idgenero': self.genero_idgenero}
+
+    def __str__(self):
+        return str(self.__class__) + ':' + str(self.__dict__)
+
+class Lugar_reservacion(db.Model):
+    id_direccion_lugarreserv = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nom_lugreserv = db.Column(db.String(128), nullable=False)
+    ciudad_id_ciudad = db.Column(db.String(20), db.ForeignKey('ciudad.id_Ciudad'))
+    reservaciones = db.relationship('Reservacion', cascade='all, delete, delete-orphan')
+
+    def __init__(self, nom_lugaresreserv, ciudad_id_ciudad):
+        self.nom_lugreserv = nom_lugaresreserv
+        self.ciudad_id_ciudad = ciudad_id_ciudad
+
+    def json(self):
+        return {'id_direccion_lugreserv': self.id_direccion_lugreserv, 'nom_lugreserv': self.nom_lugreserv, 'ciudad_id_ciudad' : self.ciudad_id_ciudad}
+
+    def __str__(self):
+        return str(self.__class__) + ':' + str(self.__dict__)
 class Cliente(db.Model):
     __tablename__ = 'cliente'
     id_Cliente = db.Column(db.Integer, primary_key=True)
@@ -35,6 +73,7 @@ class Genero(db.Model):
     idGenero = db.Column(db.Integer, primary_key=True)
     Desc_genero = db.Column(db.String(20), nullable=False)
     clientes = db.relationship('Cliente', cascade='all, delete, delete-orphan')
+    empleados= db.relationship('Empleados', cascade='all, delete, delete-orphan')
 
     def __init__(self, idGenero, Desc_genero):
         self.idGenero = idGenero
@@ -52,6 +91,7 @@ class Ciudad(db.Model):
     Departamento_idDepartamento = db.Column(db.String(20), db.ForeignKey('departamento.idDepartamento'))
     empresas = db.relationship('Empresa', cascade='all, delete, delete-orphan')
     clientes = db.relationship('Cliente', cascade='all, delete, delete-orphan')
+    lugares_reservacion = db.relationship('Lugar_reservacion', cascade='all, delete, delete-orphan')
 
     def __init__(self, id_Ciudad):
         self.id_Ciudad = id_Ciudad
@@ -83,6 +123,7 @@ class TipoUsuario(db.Model):
     idTipo_usuario = db.Column(db.Integer, primary_key=True)
     Nombre_t_usuario = db.Column(db.String(20), nullable=False)
     estado = db.Column(db.Boolean, nullable=False)
+    empleados = db.relationship('Empleados', cascade='all, delete, delete-orphan')
 
     def __init__(self, idTipo_usuario, Nombre_t_usuario, estado):
         self.idTipo_usuario = idTipo_usuario
@@ -129,11 +170,11 @@ class Reservacion(db.Model):
     servicio = db.Column(db.Integer, db.ForeignKey("servicio.id_servicio"))
     fecha_reservacion = db.Column(db.Date, nullable=False)
     hora_reservacion = db.Column(db.Time, nullable=False)
-    lugar_reservacion = db.Column(db.String(128), nullable=False)
+    lugar_reservacion = db.Column(db.Integer, db.ForeignKey('lugar_reservacion.id_direccion_lugarreserv'))
     empresa = db.Column(db.Integer, db.ForeignKey('empresa.Nit_empresa'))
     cliente = db.Column(db.Integer, db.ForeignKey('cliente.id_Cliente'))
     valor = db.Column(db.Integer, nullable=False)
-    empleado = db.Column(db.Integer, nullable=False)
+    empleado_id = db.Column(db.Integer, db.ForeignKey('empleados.id_empleado'))
 
     def __init__(self, servicio, fecha_reservacion, hora_reservacion, lugar_reservacion, empresa, cliente, valor, empleado):
         self.servicio = servicio
@@ -214,5 +255,18 @@ class GeneroSchema(SQLAlchemyAutoSchema):
 class ClienteSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Cliente
+        include_relationships = True
+        load_instance = True
+
+class Lugar_reservacionSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = Lugar_reservacion
+        include_relationships = True
+        load_instance = True
+
+
+class EmpleadosSchema(SQLAlchemyAutoSchema):
+    class Meta:
+        model = Empleados
         include_relationships = True
         load_instance = True

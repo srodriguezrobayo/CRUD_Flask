@@ -1,5 +1,5 @@
 from flaskr import create_app
-from .modelos import db, Servicio, ServicioSchema, Reservacion, ReservacionSchema, TipoUsuario, TipoUsuarioSchema, Empresa, EmpresaSchema, Ciudad, CiudadSchema, Departamento, DepartamentoSchema, Genero, GeneroSchema, Cliente, ClienteSchema
+from .modelos import db, Servicio, ServicioSchema, Reservacion, ReservacionSchema, TipoUsuario, TipoUsuarioSchema, Empresa, EmpresaSchema, Ciudad, CiudadSchema, Departamento, DepartamentoSchema, Genero, GeneroSchema, Cliente, ClienteSchema, Empleados, EmpleadosSchema, Lugar_reservacion, Lugar_reservacionSchema
 from flask_restful import Api
 from .vistas import VistaServicio, VistaServicios
 from .vistas import VistaReservacion, VistaReservaciones
@@ -9,6 +9,8 @@ from .vistas import VistaCiudad, VistaCiudades
 from .vistas import VistaDepartamento, VistaDepartamentos
 from .vistas import VistaGenero, VistaGeneros
 from .vistas import VistaCliente, VistaClientes
+from .vistas import VistaEmpleado, VistaEmpleados
+from .vistas import Vistalugar_reservacion, Vistalugares_reservaciones
 from flask_migrate import Migrate
 
 
@@ -38,3 +40,7 @@ api.add_resource(VistaGenero, '/genero/<int:idGenero>')
 api.add_resource(VistaGeneros, '/generos')
 api.add_resource(VistaCliente, '/cliente/<int:id_Cliente>')
 api.add_resource(VistaClientes, '/clientes')
+api.add_resource(VistaEmpleado, '/empleado/<int:id_Empleados>')
+api.add_resource(VistaEmpleados, '/empleados')
+api.add_resource(Vistalugar_reservacion, '/lugar_reservacion/<int:id_lugar_reservacion>')
+api.add_resource(Vistalugares_reservaciones, '/lugares_reservaciones')
