@@ -1,35 +1,67 @@
 from flask_restful import Resource
-from ..modelos import db, Servicio, ServicioSchema
-#from ..modelos import Album, AlbumSchema
+from ..modelos import db, Empleados, ReservacionSchema, lugar_reservacion, lugar_reservacionschema
 #from ..modelos import Usuario, UsuarioSchema
 from flask import request
+from..modelos import Empleados,lugar_reservacion,Empleadosschema,lugar_reservacionschema
 
-servicio_schema = ServicioSchema()
+Empleados_schema = Empleadosschema()
+lugar_reservacion_schema = lugar_reservacionschema()
 
-class VistaServicios(Resource):
-    def get(self):#Me trae todas las canciones
-        return [servicio_schema.dump(Servicio) for Servicio in Servicio.query.all()]
+class VistaEmpleados(Resource):
+    def get(self):
+        global Empleados
+        return [Empleados_schema.dump(Empleados) for Empleados in Empleados.query.all()]
 
     def post(self):
-        nuevo_servicio = Servicio(nombre_servicio=request.json['nombre_servicio'])
-        db.session.add(nuevo_servicio)#agrgar en la bd
-        db.session.commit()#guardar los cambios
-        return servicio_schema.dump(nuevo_servicio)#retornar la nueva cancion en formato json
+        nuevo_Empleado = Empleados(nombre_Empleado=request.json['nombre_Empleado'],nom_empleado=request.json['nom_empleado'],correo_elec_admin=request.json['correo_elec_admin'],password_empleado=request.json['password_empleado'],tipo_usuario_idtipo_usuario=request.json['tipo_usuario_idtipo_usuario'],telefono_empleado=request.json['telefono_empleado'],genero_idgenero=request.json['genero_idgnero'])
+        db.session.add(nuevo_Empleado)
+        db.session.commit()
+        return Empleados_schema.dump(nuevo_Empleado)
 
-class VistaServicio(Resource):
-    def get(self, id_servicio):
-        return servicio_schema.dump(Servicio.query.get_or_404(id_servicio))
+class VistaEmpleado(Resource):
+    def get(self, id_Empleados):
+        return Empleados_schema.dump(Empleados.query.get_or_404(id_Empleados))
 
     #actualizar
-    def put(self, id_servicio):
-        servicio = Servicio.query.get_or_404(id_servicio)
-        servicio.id_servicio = request.json.get('id_servicio', servicio.id_servicio)
-        servicio.nombre_servicio = request.json.get('nombre_servicio',servicio.nombre_servicio)
+    def put(self, id_Empleados):
+        Empleados = Empleados_schema.query.get_or_404(id_Empleados)
+        Empleados.id_Empleado = request.json.get
+        Empleados.nombre_Empleado = request.json.get
         db.session.commit()
-        return servicio_schema.dump(servicio)
+        return Empleados_schema.dump(Empleados)
 
-    def delete(self, id_servicio):
-        servicio = Servicio.query.get_or_404(id_servicio)
-        db.session.delete(servicio)
+    def delete(self, id_Empleados):
+        Empleado = Empleados.query.get_or_404(id_Empleados)
+        db.session.delete(Empleado)
+        db.session.commit()
+        return 'Operacion exitosa', 204
+
+class Vistalugares_reservaciones(Resource):
+    def get(self):
+        return [lugar_reservacion_schema.dump(lugar_reservacion) for lugar_reservacion in lugar_reservacion.query.all()]
+
+    def post(self):
+        nueva_lugar_reservacion = lugar_reservacion(nom_lugreserv=request.json['nom_lugreserv'],
+                                        ciudad_id_ciudad=request.json['ciudad_id_ciudad'])
+        db.session.add(nueva_lugar_reservacion)
+        db.session.commit()
+        return lugar_reservacion_schema.dump(nueva_lugar_reservacion)
+
+class Vistalugar_reservacion(Resource):
+    def get(self, id_lugar_reservacion):
+        return lugar_reservacion_schema.dump(lugar_reservacion.query.get_or_404(id_lugar_reservacion))
+
+    #actualizar
+    def put(self, id_lugar_reservacion):
+        lugar_reservacion = lugar_reservacion.query.get_or_404(id_lugar_reservacion)
+        lugar_reservacion.id_direccion_lugreserv = request.json.get
+        lugar_reservacion.nom_lugreserv = request.json.get
+        lugar_reservacion.ciudad_id_ciudad = request.json.get
+        db.session.commit()
+        return Empleados_schema.dump(lugar_reservacion)
+
+    def delete(self, id_lugar_reservacion):
+        lugar_reservacion = lugar_reservacion.query.get_or_404(id_lugar_reservacion)
+        db.session.delete(lugar_reservacion)
         db.session.commit()
         return 'Operacion exitosa', 204
